@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Configuration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>App Configuration</h1>
+    </header>
+    <main>
+        <form id="configForm">
+            <div>
+                <label for="appName">App Name:</label>
+                <input type="text" id="appName" name="appName" required>
+            </div>
+            <div>
+                <label for="appVersion">App Version:</label>
+                <input type="text" id="appVersion" name="appVersion" required>
+            </div>
+            <div>
+                <label for="apiEndpoint">API Endpoint:</label>
+                <input type="url" id="apiEndpoint" name="apiEndpoint" required>
+            </div>
+            <div>
+                <label for="theme">Theme:</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <button type="submit">Save Configuration</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

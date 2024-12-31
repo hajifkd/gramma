@@ -1,0 +1,19 @@
+{
+  "name": "grammarly_openai",
+  "version": "0.1.0",
+  "author": "Hajime Fukuda",
+  "license": "MIT",
+  "description": "",
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "copy-webpack-plugin": "^12.0.2",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.9.5",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
