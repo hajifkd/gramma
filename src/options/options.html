@@ -1,42 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Configuration</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gramma - Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>App Configuration</h1>
-    </header>
-    <main>
-        <form id="configForm">
-            <div>
-                <label for="appName">App Name:</label>
-                <input type="text" id="appName" name="appName" required>
+    <div class="container">
+        <h1>Gramma - Settings</h1>
+        <form>
+            <div class="form-group">
+                <label for="entry-point">Entry Point</label>
+                <input type="text" id="entry-point" name="entry-point" placeholder="Enter the entry point URL">
             </div>
-            <div>
-                <label for="appVersion">App Version:</label>
-                <input type="text" id="appVersion" name="appVersion" required>
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="text" id="api-key" name="api-key" placeholder="Enter the Azure OpenAI API key">
             </div>
-            <div>
-                <label for="apiEndpoint">API Endpoint:</label>
-                <input type="url" id="apiEndpoint" name="apiEndpoint" required>
+            <div class="form-group">
+                <label for="url-list">List of URLs</label>
+                <textarea id="url-list" name="url-list"
+                    placeholder="Enter the URLs where the extension is available"></textarea>
             </div>
-            <div>
-                <label for="theme">Theme:</label>
-                <select id="theme" name="theme">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </div>
-            <button type="submit">Save Configuration</button>
+            <button type="submit" id="save">Save Settings</button>
         </form>
-    </main>
-    <footer>
-        <p>&copy; 2023 Your Company</p>
-    </footer>
-    <script src="scripts.js"></script>
+    </div>
+    <script src="options.js"></script>
 </body>
+
 </html>
