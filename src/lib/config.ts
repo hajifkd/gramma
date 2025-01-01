@@ -1,3 +1,11 @@
+/**
+ * Configuration management
+ * This module provides functions to get and set configuration values.
+ * The configuration values are stored in the Chrome storage with sync option.
+ * background.ts listens to the messages from the content script and updates the configuration values.
+ * The configuration values are cached in the background script to reduce the number of storage accesses.
+ */
+
 import { BackgroundCommand } from "./common";
 
 export async function getUrls(): Promise<string[] | undefined> {
@@ -48,3 +56,18 @@ export async function setAzureApiKey(apiKey: string): Promise<void> {
     });
 }
 
+export async function getDeploymentName(): Promise<string | undefined> {
+    return new Promise((resolve) => {
+        chrome.runtime.sendMessage({ command: BackgroundCommand.GetDeploymentName }, (response) => {
+            resolve(response);
+        });
+    });
+}
+
+export async function setDeploymentName(deploymentName: string): Promise<void> {
+    return new Promise((resolve) => {
+        chrome.runtime.sendMessage({ command: BackgroundCommand.SetDeploymentName, data: deploymentName }, () => {
+            resolve();
+        });
+    });
+}

@@ -35,6 +35,9 @@ function commandToStorageKey(command: BackgroundCommand): string | null {
         case BackgroundCommand.GetAzureApiKey:
         case BackgroundCommand.SetAzureApiKey:
             return 'azureApiKey';
+        case BackgroundCommand.GetDeploymentName:
+        case BackgroundCommand.SetDeploymentName:
+            return 'deploymentName';
     }
     return null;
 }
@@ -44,6 +47,7 @@ chrome.runtime.onMessage.addListener((message: { command: BackgroundCommand, dat
         case BackgroundCommand.GetUrls:
         case BackgroundCommand.GetAzureEndpoint:
         case BackgroundCommand.GetAzureApiKey:
+        case BackgroundCommand.GetDeploymentName:
             // typescript needs parentheses here.
             {
                 const key = commandToStorageKey(message.command) as string;
@@ -60,6 +64,7 @@ chrome.runtime.onMessage.addListener((message: { command: BackgroundCommand, dat
         case BackgroundCommand.SetUrls:
         case BackgroundCommand.SetAzureEndpoint:
         case BackgroundCommand.SetAzureApiKey:
+        case BackgroundCommand.SetDeploymentName:
             {
                 const key = commandToStorageKey(message.command) as string;
                 config_cache[key] = message.data;
