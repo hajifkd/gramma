@@ -6,13 +6,10 @@ async function main() {
     const azureApiKey = await config.getAzureApiKey();
     const deploymentName = await config.getDeploymentName();
 
-
     (document.getElementById('url-list') as HTMLTextAreaElement).value = urls?.join('\n') || '';
     (document.getElementById('entry-point') as HTMLInputElement).value = azureEndpoint || '';
     (document.getElementById('api-key') as HTMLInputElement).value = azureApiKey || '';
     (document.getElementById('deployment-name') as HTMLInputElement).value = deploymentName || '';
-
-
 
     document.getElementById('save')?.addEventListener('click', async () => {
         const urls = (document.getElementById('url-list') as HTMLTextAreaElement).value.split('\n');
